@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon - Meu Mundo Pokémon</title>
+    <style>
+        /* Resetando alguns estilos padrões */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: #ffcb05;
+            color: #3d7211;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .pokemon-card {
+            background-color: white;
+            width: 250px;
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .pokemon-card img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .pokemon-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pokemon-name {
+            font-size: 1.5rem;
+            color: #ffcb05;
+            margin: 1rem 0;
+        }
+
+        .pokemon-type {
+            font-size: 1.1rem;
+            color: #3d7211;
+        }
+
+        .pokemon-button {
+            background-color: #ffcb05;
+            color: #3d7211;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .pokemon-button:hover {
+            background-color: #ffdd56;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pokemon-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bem-vindo ao Mundo Pokémon!</h1>
+        <p>Explore os Pokémon e seus tipos</p>
+    </header>
+
+    <div class="container">
+        <!-- Card 1: Bulbasaur -->
+        <div class="pokemon-card">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur">
+            <div class="pokemon-name">Bulbasaur</div>
+            <div class="pokemon-type">Tipo: Planta / Venenoso</div>
+            <button class="pokemon-button" onclick="showInfo('bulbasaur')">Ver Mais</button>
+            <div id="bulbasaur-info" style="display:none; margin-top: 10px;">Bulbasaur é um Pokémon do tipo planta e venenoso. É conhecido por ser o primeiro Pokémon no Pokédex!</div>
+        </div>
+
+        <!-- Card 2: Charmander -->
+        <div class="pokemon-card">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander">
+            <div class="pokemon-name">Charmander</div>
+            <div class="pokemon-type">Tipo: Fogo</div>
+            <button class="pokemon-button" onclick="showInfo('charmander')">Ver Mais</button>
+            <div id="charmander-info" style="display:none; margin-top: 10px;">Charmander é um Pokémon do tipo fogo e é famoso por sua chama na cauda!</div>
+        </div>
+
+        <!-- Card 3: Squirtle -->
+        <div class="pokemon-card">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle">
+            <div class="pokemon-name">Squirtle</div>
+            <div class="pokemon-type">Tipo: Água</div>
+            <button class="pokemon-button" onclick="showInfo('squirtle')">Ver Mais</button>
+            <div id="squirtle-info" style="display:none; margin-top: 10px;">Squirtle é um Pokémon do tipo água e é conhecido por sua habilidade em nadar!</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Pokémon. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para mostrar mais informações sobre o Pokémon
+        function showInfo(pokemon) {
+            // Esconde todas as informações
+            let allInfo = document.querySelectorAll('[id$="-info"]');
+            allInfo.forEach(info => info.style.display = 'none');
+
+            // Exibe as informações do Pokémon clicado
+            document.getElementById(pokemon + '-info').style.display = 'block';
+        }
+    </script>
+    
+</body>
+</html>
